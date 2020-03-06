@@ -34,9 +34,10 @@ public class Playlist {
 	    sh.addSong(head);
 	    if (nextSong != null) 
 		head = nextSong;
-	    else 
-		head == null;
+	    else { 
+		head = null;
 		System.out.println("Playlist is empty!");
+	    }
 	}
 	else {
 	    System.out.println("No song to remove. Playlist is empty!");
@@ -56,21 +57,21 @@ public class Playlist {
     private Song last;
 }
 
-private class Song {
-    public Song(String n, String a) {
-        name = n;
-        artist = a;
-        last = null;
-	next = null;
-    }
-    public void insertNext(Song n) {
-	this.next = n;
-    }
-    public Song getNext() {
-	return next;
-    }
-    // Fields
-    private String name;
-    private String artist;
-    private Song next;
-}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

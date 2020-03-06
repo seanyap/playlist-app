@@ -47,7 +47,7 @@ public class SpotifyCSVProcessor {
 		songName = songData[artistNameIndex - 1];
 	    
             // check if arraylist contains the song; 
-	    if (songs.get(songName)) 
+	    if (songs.contains(songName)) 
 		// has duplicates so do not add it to the arraylist
 		continue;
 	    else {
@@ -64,16 +64,34 @@ public class SpotifyCSVProcessor {
     }
     // sort arraylist 
     public void sort() {
-	for (int i=0; i<artists.size(); i++) {
-	    String top = artists.get(i);
-	    
+	int size = artists.size();
+	for (int current=0; current<size-1; current++) {
+	    int smallestValueIndex = current;
+	    for (int target=current+1; target<size; target++) {
+		String smallestValue = songs.get(smallestValueIndex).toLowerCase();
+		String targetValue = songs.get(target).toLowerCase();
+		int diff = smallestValue.compareTo(targetValue);
+		if (diff < 0)
+		    continue;
+		else
+		    smallestValueIndex = target;
+	    }
+    	    String oldSong = songs.get(current);
+	    String newSong = songs.get(smallestValueIndex);
+	    songs.set(current, newSong);
+	    songs.set(smallestValueIndex, oldSong);
+	
+	    String oldArtist = artists.get(current);
+	    String newArtist = artists.get(smallestValueIndex);
+	    artists.set(current, newArtist);
+	    artists.set(smallestValueIndex, oldArtist);
 	}
     }
     public int getSize() { return songs.size(); } 
     public String getSong(int index) { 
 	// check if index is not out of bounds  
 	if (index < getSize()) 
-	    return songs.get(index));
+	    return songs.get(index);
 	else 
 	    return null;  
     }

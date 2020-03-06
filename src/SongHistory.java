@@ -6,18 +6,19 @@ public class SongHistory {
 
     // Interfaces
     public void addSong(Song s) {
+	Song recentlyListened = new Song(s.getName(), s.getArtist());
 	if (top == null)
-	    top = s;
+	    top = recentlyListened;
 	else {
 	    Song old = top;
-	    top = s;
+	    top = recentlyListened;
 	    top.insertNext(old);
 	}
     }
     public Song lastListened() {
 	return top;	
     }
-    public void displayHistory() {
+    public void display() {
 	top.display();
 	Song next = top.getNext();
 	while (next != null) {

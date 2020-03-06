@@ -2,7 +2,6 @@ public class Song {
     public Song(String n, String a) {
         name = n;
         artist = a;
-        last = null;
         next = null;
     }
     public void insertNext(Song n) {
@@ -12,7 +11,13 @@ public class Song {
         return next;
     }
     public void display() {
-	System.out.println("Song name: " + name "  Artist: : " + artist);
+	System.out.println("Song name: " + name + "  Artist: " + artist);
+    }
+    public String getName() {
+	return name;
+    }
+    public String getArtist() {
+	return artist;
     }
     // Fields
     private String name;
