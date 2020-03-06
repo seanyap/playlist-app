@@ -1,3 +1,11 @@
+/* Class: CISC 3130
+ * Section: MY9 (Monday and Wednesday)
+ * EmplId: 23794282
+ * Name: Sean Wy Tze Yap
+*/
+
+import java.io.PrintWriter;
+
 public class Playlist {
 
     public Playlist() {
@@ -10,8 +18,7 @@ public class Playlist {
 	insert(p);
     }
 
-    public void insert(String songName, String artist) {
-	Song newSong = new Song(songName, artist);
+    public void insert(Song newSong) {
 	if (head == null) { 
 	    head = newSong;
 	    last = head;
@@ -24,7 +31,7 @@ public class Playlist {
 
     public void insert(SpotifyCSVProcessor p) {
 	for (int i=0; i<p.getSize(); i++) {
-            insert(p.getSong(i), p.getArtist(i)); 
+            insert(new Song(p.getSong(i), p.getArtist(i))); 
 	}
     }
 
@@ -43,11 +50,11 @@ public class Playlist {
 	    System.out.println("No song to remove. Playlist is empty!");
 	} 
     }
-    public void displayPlaylist() {
-	head.display();
+    public void displayPlaylist(PrintWriter out) {
+	head.display(out);
 	Song newHead = head.getNext();
 	while (newHead != null) {
-	    newHead.display();
+	    newHead.display(out);
 	    newHead = newHead.getNext();
         }
     }

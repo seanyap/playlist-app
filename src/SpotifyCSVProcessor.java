@@ -1,3 +1,9 @@
+/* Class: CISC 3130
+ * Section: MY9 (Monday and Wednesday)
+ * EmplId: 23794282
+ * Name: Sean Wy Tze Yap
+*/
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -42,17 +48,21 @@ public class SpotifyCSVProcessor {
 		}
 	    } 
 	    // song has no comma
-	    else
+	    else {
 		// song name is before artist name 
 		songName = songData[artistNameIndex - 1];
-	    
+	    }
+	   
+	    songName = songName.replace("\"", "");
+
             // check if arraylist contains the song; 
-	    if (songs.contains(songName)) 
+	    if (songs.contains(songName)) { 
 		// has duplicates so do not add it to the arraylist
 		continue;
+	    }
 	    else {
 	        // adding respective song name and artist to the parallel arraylist
-	        songs.add(songName.replace("\"", ""));
+	        songs.add(songName);
 	        artists.add(artistName.replace("\"", ""));
 	    }
 	}

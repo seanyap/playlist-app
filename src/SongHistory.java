@@ -1,3 +1,11 @@
+/* Class: CISC 3130
+ * Section: MY9 (Monday and Wednesday)
+ * EmplId: 23794282
+ * Name: Sean Wy Tze Yap
+*/
+
+import java.io.PrintWriter;
+
 public class SongHistory {
     // Constructors
     public SongHistory() {
@@ -18,11 +26,11 @@ public class SongHistory {
     public Song lastListened() {
 	return top;	
     }
-    public void display() {
-	top.display();
+    public void display(PrintWriter out) {
+	top.display(out);
 	Song next = top.getNext();
 	while (next != null) {
-	    next.display();
+	    next.display(out);
 	    next = next.getNext();
 	}	
     }
