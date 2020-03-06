@@ -1,6 +1,5 @@
-# Playlist-App
+# Playlist-Application
 
-Playlist Application
 
 This is an Application that takes multiple data files from Spotify and generates a playlist that is alphabetically ordered 
 
